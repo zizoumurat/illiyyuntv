@@ -28,7 +28,7 @@ export default {
   // middleware: "auth"
   async fetch() {
     const { data } = await this.$axios.get("/blogs");
-    const { data:homeBanner } = await this.$axios.get("/banner");
+    const { data: homeBanner } = await this.$axios.get("/banner");
 
     this.posts = data;
     this.homeBanner = homeBanner.Image ? homeBanner.Image.url : "";
@@ -38,7 +38,7 @@ export default {
       say: 10,
       // changeCollapseStatus: false
       posts: [],
-      homeBanner: ''
+      homeBanner: "",
     };
   },
   methods: {
@@ -69,7 +69,11 @@ export default {
 </script>
 
 <style scoped>
-#cover {
+ ::v-deep #cover {
   height: 550px;
+}
+
+::v-deep .modal-header {
+  background-color: #fff;
 }
 </style>

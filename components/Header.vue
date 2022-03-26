@@ -62,7 +62,7 @@
             </div>
             <div class="itemIcon p-1 text-white">
               <p>
-                <nuxt-link to="/videos/all" class="text-center">
+                <nuxt-link to="/photos" class="text-center">
                   <i class="fa fa-picture-o" aria-hidden="true"></i>
                   Resimler</nuxt-link
                 >
@@ -132,7 +132,7 @@
                   </nuxt-link>
                 </div>
                 <div class="itemIcon p-1">
-                  <nuxt-link to="/videos/all">
+                  <nuxt-link to="/photos">
                     <i class="fa fa-picture-o"></i>
                     <span>Resimler</span>
                   </nuxt-link>

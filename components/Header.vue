@@ -54,9 +54,9 @@
             </div>
             <div class="itemIcon p-1 text-white">
               <p>
-                <nuxt-link to="/blog" class="text-center">
-                  <i class="fa fa-comment" aria-hidden="true"></i>
-                  Yazılar</nuxt-link
+                <nuxt-link to="/videos/all" class="text-center">
+                  <i class="fa fa-video-camera" aria-hidden="true"></i>
+                  Videolar</nuxt-link
                 >
               </p>
             </div>
@@ -70,9 +70,9 @@
             </div>
             <div class="itemIcon p-1 text-white">
               <p>
-                <nuxt-link to="/videos/all" class="text-center">
-                  <i class="fa fa-video-camera" aria-hidden="true"></i>
-                  Videolar</nuxt-link
+                <nuxt-link to="/blog" class="text-center">
+                  <i class="fa fa-comment" aria-hidden="true"></i>
+                  Yazılar</nuxt-link
                 >
               </p>
             </div>
@@ -126,26 +126,34 @@
               </div>
               <div class="d-flex justify-content-between" id="headerIcons">
                 <div class="itemIcon p-1">
-                  <nuxt-link to="/blog">
-                    <i class="fa fa-comment"></i>
-                    <span>Yazılar</span>
+                  <nuxt-link to="/videos/all">
+                    <div>
+                      <i class="fa fa-video-camera"></i>
+                    </div>
+                    <span>Videolar</span>
                   </nuxt-link>
                 </div>
                 <div class="itemIcon p-1">
                   <nuxt-link to="/photos">
-                    <i class="fa fa-picture-o"></i>
+                    <div>
+                      <i class="fa fa-picture-o"></i>
+                    </div>
                     <span>Resimler</span>
                   </nuxt-link>
                 </div>
                 <div class="itemIcon p-1">
-                  <nuxt-link to="/videos/all">
-                    <i class="fa fa-video-camera"></i>
-                    <span>Videolar</span>
+                  <nuxt-link to="/blog">
+                    <div>
+                      <img src="/images/blog-icon.png" alt="" />
+                    </div>
+                    <span>Yazılar</span>
                   </nuxt-link>
                 </div>
                 <div v-if="$store.state.userData.isLogin" class="itemIcon p-1">
                   <nuxt-link to="/account/settings">
-                    <i class="fa fa-user-circle"></i>
+                    <div>
+                      <i class="fa fa-user-circle"></i>
+                    </div>
                     <span>Hesabım</span>
                   </nuxt-link>
                 </div>
@@ -155,12 +163,18 @@
                   class="itemIcon p-1"
                   @click="logOut"
                 >
-                  <i class="fa fa-sign-out" aria-hidden="true"></i>
-                  <p><a href="">Çıkış</a></p>
+                  <a href="#">
+                    <div>
+                      <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    </div>
+                    <span>Çıkış</span>
+                  </a>
                 </div>
                 <div class="itemIcon p-1" v-else>
                   <nuxt-link to="/account">
-                    <i class="fa fa-sign-in"></i>
+                    <div>
+                      <i class="fa fa-sign-in"></i>
+                    </div>
                     <span>Kayıt / Giriş</span>
                   </nuxt-link>
                 </div>

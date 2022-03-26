@@ -132,6 +132,17 @@ footer {
   text-decoration: none;
 }
 
+.itemIcon a div {
+  display: flex;
+  height: 35px;
+  justify-content: center;
+  align-items: center;
+}
+
+.itemIcon a img{
+ height: 30px;
+}
+
 .centeredBackgroundImage {
   background-repeat: no-repeat;
   background-position: center center;

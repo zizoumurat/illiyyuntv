@@ -90,8 +90,7 @@
     </transition>
     <div
       id="cover"
-      class="centeredBackgroundImage mobilHeightCover mb-2 home-cover"
-      :class="className"
+      class="centeredBackgroundImage mobilHeightCover mb-2"
       :style="[
         bannerImageUrl.length > 0
           ? { 'background-image': `url(${bannerImageUrl})` }
@@ -224,12 +223,6 @@ export default {
   methods: {
     search() {},
   },
-
-  computed: {
-    className() {
-      return this.$route.path === '/' ? 'home-cover' : ''
-    }
-  }
 };
 </script>
 
@@ -239,7 +232,7 @@ export default {
   max-width: 95%;
 }
 
-.home-cover {
+#cover {
   height: 550px;
 }
 

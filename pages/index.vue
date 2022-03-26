@@ -69,9 +69,6 @@ export default {
 </script>
 
 <style scoped>
- ::v-deep #cover {
-  height: 550px;
-}
 
 ::v-deep .modal-header {
   background-color: #fff;

@@ -63,6 +63,10 @@ export default {
     },
   },
 
+  loaders: [
+    { test: /\.js$/, loader: 'babel', query: { compact: false } }
+  ],
+
   axios: {
     baseURL: process.env.API_URL || 'https://illiyyuntv-api.herokuapp.com/'
   }

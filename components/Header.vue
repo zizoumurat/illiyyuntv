@@ -232,10 +232,6 @@ export default {
   max-width: 95%;
 }
 
-#cover {
-  height: 550px;
-}
-
 .search-input {
   height: 44px;
 }

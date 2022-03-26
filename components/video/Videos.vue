@@ -27,7 +27,6 @@
           <span>
             <nuxt-link
               :to="'/videos/watch/' + video.link.split('/')[3]"
-              tag="a"
               style="cursor: pointer"
               >{{ video.name }}</nuxt-link
             >

@@ -91,6 +91,7 @@
     <div
       id="cover"
       class="centeredBackgroundImage mobilHeightCover mb-2"
+      :class="className"
       :style="[
         bannerImageUrl.length > 0
           ? { 'background-image': `url(${bannerImageUrl})` }
@@ -223,6 +224,12 @@ export default {
   methods: {
     search() {},
   },
+
+  computed: {
+    className() {
+      return this.$route.path === '/' ? 'home-cover' : ''
+    }
+  }
 };
 </script>
 
@@ -230,6 +237,10 @@ export default {
 #searchDiv {
   width: 500px;
   max-width: 95%;
+}
+
+.home-cover {
+  height: 550px;
 }
 
 .search-input {

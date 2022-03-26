@@ -107,3 +107,4 @@ license.txt
 exports
 *.cache
 build
+.nuxt

@@ -61,9 +61,6 @@ export default {
         implementation: require('sass'),
       },
     },
-    vendor: [
-      'vue-vimeo-player'
-    ],
   },
 
   axios: {

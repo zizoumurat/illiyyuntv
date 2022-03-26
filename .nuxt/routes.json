@@ -1,0 +1,65 @@
+[
+  {
+    "name": "blog",
+    "path": "/blog",
+    "component": "/Users/muratdere/Desktop/illiyyuntv-new/web/pages/blog/index.vue",
+    "chunkName": "pages/blog/index",
+    "_name": "_5cd688d3"
+  },
+  {
+    "name": "photos",
+    "path": "/photos",
+    "component": "/Users/muratdere/Desktop/illiyyuntv-new/web/pages/photos/index.vue",
+    "chunkName": "pages/photos/index",
+    "_name": "_18286d1c"
+  },
+  {
+    "name": "videos",
+    "path": "/videos",
+    "component": "/Users/muratdere/Desktop/illiyyuntv-new/web/pages/videos/index.vue",
+    "chunkName": "pages/videos/index",
+    "_name": "_2e0548ee"
+  },
+  {
+    "name": "videos-all",
+    "path": "/videos/all",
+    "component": "/Users/muratdere/Desktop/illiyyuntv-new/web/pages/videos/all/index.vue",
+    "chunkName": "pages/videos/all/index",
+    "_name": "_3e7c1d1b"
+  },
+  {
+    "name": "photos-detail-imagId",
+    "path": "/photos/detail/:imagId",
+    "component": "/Users/muratdere/Desktop/illiyyuntv-new/web/pages/photos/detail/_imagId/index.vue",
+    "chunkName": "pages/photos/detail/_imagId/index",
+    "_name": "_238477f9"
+  },
+  {
+    "name": "videos-watch-videoId",
+    "path": "/videos/watch/:videoId",
+    "component": "/Users/muratdere/Desktop/illiyyuntv-new/web/pages/videos/watch/_videoId/index.vue",
+    "chunkName": "pages/videos/watch/_videoId/index",
+    "_name": "_67bb8a53"
+  },
+  {
+    "name": "blog-slug",
+    "path": "/blog/:slug",
+    "component": "/Users/muratdere/Desktop/illiyyuntv-new/web/pages/blog/_slug.vue",
+    "chunkName": "pages/blog/_slug",
+    "_name": "_5b1fe78b"
+  },
+  {
+    "name": "photos-pageId",
+    "path": "/photos/:pageId",
+    "component": "/Users/muratdere/Desktop/illiyyuntv-new/web/pages/photos/_pageId/index.vue",
+    "chunkName": "pages/photos/_pageId/index",
+    "_name": "_15dd680c"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/muratdere/Desktop/illiyyuntv-new/web/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_49f70814"
+  }
+]

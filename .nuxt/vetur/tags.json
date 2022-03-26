@@ -1,0 +1,35 @@
+{
+  "CommentItem": {
+    "description": "Auto imported from components/video/CommentItem.vue"
+  },
+  "HorizontalVideoCard": {
+    "description": "Auto imported from components/video/HorizontalVideoCard.vue"
+  },
+  "InsertComment": {
+    "description": "Auto imported from components/video/InsertComment.vue"
+  },
+  "Video": {
+    "description": "Auto imported from components/video/Video.vue"
+  },
+  "Videos": {
+    "description": "Auto imported from components/video/Videos.vue"
+  },
+  "PhotoGallery": {
+    "description": "Auto imported from components/photos/PhotoGallery.vue"
+  },
+  "PhotoModal": {
+    "description": "Auto imported from components/photos/PhotoModal.vue"
+  },
+  "Footer": {
+    "description": "Auto imported from components/Footer.vue"
+  },
+  "Header": {
+    "description": "Auto imported from components/Header.vue"
+  },
+  "HorizontalPosts": {
+    "description": "Auto imported from components/HorizontalPosts.vue"
+  },
+  "Posts": {
+    "description": "Auto imported from components/posts/Posts.vue"
+  }
+}

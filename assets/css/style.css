@@ -136,7 +136,6 @@ footer {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  height: 550px;
 }
 
 #searchDiv .btn {
@@ -151,7 +150,6 @@ footer {
 
 .postCard h2 {
   font-family: Bebas Neue;
-  color: red;
 }
 
 .postCard p {

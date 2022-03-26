@@ -90,7 +90,7 @@
     </transition>
     <div
       id="cover"
-      class="centeredBackgroundImage mobilHeightCover mb-2"
+      class="centeredBackgroundImage mobilHeightCover mb-2 home-cover"
       :class="className"
       :style="[
         bannerImageUrl.length > 0

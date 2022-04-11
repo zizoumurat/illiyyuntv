@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header :banner-image-url="banner"/>
+    <Header />
     <PhotoGallery :gallery="gallery" />
     
   </div>

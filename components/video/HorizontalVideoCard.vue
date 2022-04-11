@@ -60,14 +60,14 @@
         </div>
       </div>
     </div>
-    <infinite-loading
+    <!-- <infinite-loading
       :key="infiniteKey"
       spinner="spiral"
       @infinite="infiniteScroll"
     >
       <span slot="no-more"></span>
       <span slot="no-results"></span>
-    </infinite-loading>
+    </infinite-loading> -->
   </div>
 </template>
 

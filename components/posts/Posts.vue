@@ -14,16 +14,27 @@
           </h2>
           <p class="text-muted">
             <small
-              ><i class="fa fa-clock-o" aria-hidden="true"></i> 7 Şubat 2021
+              ><i class="fa fa-clock-o" aria-hidden="true"></i> {{convertDate(post.created_at)}}
             </small>
           </p>
-          <div
+          <markdown-it-vue
+            class="mt-3"
+            :content="post.detail ? post.detail : ''"
+            :class="{
+              postContentClosed: !collapseStatus,
+              postContentOpened: collapseStatus,
+            }"
+          />
+          <!-- <div
             v-html="post.detail"
             :class="{
               postContentClosed: !collapseStatus,
               postContentOpened: collapseStatus,
             }"
-          ></div>
+          ></div> -->
+          <nuxt-link :to="`/blog/${post.slug}`">
+            <a style="float: right" v-if="collapseStatus" href="">Devamını oku</a>
+          </nuxt-link>
           <div :class="{ readMoreShadow: !collapseStatus }"></div>
         </div>
 
@@ -57,6 +68,29 @@ export default {
       collapseStatus: false,
     };
   },
+  methods: {
+    convertDate(date) {
+      const newDate = new Date(date);
+      const monthNames = [
+        "Ocak",
+        "Şubat",
+        "Mart",
+        "Nisan",
+        "Mayıs",
+        "Haziran",
+        "Temmuz",
+        "Ağustos",
+        "Eylül",
+        "Ekim",
+        "Kasım",
+        "Aralık",
+      ];
+      const day = newDate.getDate();
+      const monthIndex = newDate.getMonth();
+      const year = newDate.getFullYear();
+      return `${day} ${monthNames[monthIndex]} ${year}`;
+    },
+  },
 };
 </script>
 
@@ -66,7 +100,13 @@ export default {
   height: 220px !important;
 }
 .postContentOpened {
-  height: auto !important;
+  /* height: 355px !important; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 20; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 #plusIcon {
   outline: none !important;

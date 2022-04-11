@@ -30,6 +30,10 @@ export default {
     const { data } = await this.$axios.get("/blogs");
     const { data: homeBanner } = await this.$axios.get("/banner");
 
+    data.sort((a, b) => {
+        return new Date(b.created_at) - new Date(a.created_at);
+      });
+
     this.posts = data;
     this.homeBanner = homeBanner.Image ? homeBanner.Image.url : "";
   },

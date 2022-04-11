@@ -8,28 +8,17 @@
           <div
             v-for="(item, index) in gallery"
             :key="`photo-${index}`"
-            @click="imgData = item.media.url"
+            @click="imgData = item"
             class="gallery-item"
             tabindex="0"
             data-toggle="modal"
             data-target="#exampleModal"
           >
-            <i id="indir" class="fa fa-arrow-down"></i>
-            <i
-              id="begen"
-              class="fa fa-heart text-danger"
-              aria-hidden="true"
-            ></i>
+              <i @click="download(item.media)" id="indir" class="fa fa-arrow-down"></i>
+            
             <img :src="item.media.url" class="gallery-image" alt="" />
             <div class="gallery-item-info">
-              <span class="gallery-item-likes"
-                ><span class="visually-hidden">Likes:</span
-                ><i class="fa fa-heart" aria-hidden="true"></i> 56</span
-              >
-              <span class="gallery-item-comments"
-                ><span class="visually-hidden">Comments:</span
-                ><i class="fa fa-comment" aria-hidden="true"></i> 2</span
-              >
+              
             </div>
           </div>
         </div>
@@ -41,6 +30,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   props: {
     gallery: {
@@ -62,28 +52,39 @@ export default {
       this.imgData = null;
     },
 
-    test() {
-
+    download(img) {
+      axios({
+        method: 'get',
+        url: img.url,
+        responseType: 'blob',
+      }).then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', img.name || 'image');
+        document.body.appendChild(link);
+        link.click();
+      });
     },
 
     next() {
       const findIndex = this.gallery.findIndex(
-        (item) => item.media.url === this.imgData
+        (item) => item === this.imgData
       );
       this.imgData =
         this.gallery[
           findIndex < this.gallery.length - 1 ? findIndex + 1 : 0
-        ].media.url;
+        ];
     },
 
     prev() {
       const findIndex = this.gallery.findIndex(
-        (item) => item.media.url === this.imgData
+        (item) => item === this.imgData
       );
       this.imgData =
         this.gallery[
           findIndex === 0 ? this.gallery.length - 1 : findIndex - 1
-        ].media.url;
+        ];
     },
   },
 };

@@ -31,22 +31,28 @@
         ></i>
         <div class="row m-0" style="background-color: #111111">
           <div class="col-xl-6 p-1" id="imageContent">
-            <img :src="photoData" style="width: 100%" />
+            <img :src="getPhotoUrl" style="width: 100%" />
           </div>
           <div class="col-xl-6 p-3" id="commentContent">
-            <div class="scrollbar scrollbarStyle">
-              <div class="commentItem">
-                <b>illiyyuntv</b> Kendini korumak; emirleri yerine getirip
-                yasaklardan kaçınmakla olur; aileyi korumak da onlara sevabı
-                emredip günahtan men etmekle olur. <br />
-                <p>
+            <div class="">
+              <div class="photo-data">
+                <b>illiyyuntv</b> 
+                  <br />
+                <!-- <p>
                   Ali radıyallahu anh şöyle demiştir: Onlara öğretin ve terbiye
                   edin (eğitin)
-                </p>
-                <p>(Zadü'l Mesir Fi İlmi't Tefsir)</p>
-                <p class="text-muted">1h</p>
+                </p> -->
+                <!-- <p>(Zadü'l Mesir Fi İlmi't Tefsir)</p> -->
+                <div class="download-item">
+                <i @click="download(photoData.media)" id="indir" class="fa fa-arrow-down"></i>
               </div>
-              <div class="commentItem mt-2">
+              </div>
+              <div class="mt-3">
+                {{ getPhotoDescription }}
+              </div>
+                <p class="text-muted mt-1">{{getPhotoDate}}</p>
+              
+              <!-- <div class="commentItem mt-2">
                 <div class="row">
                   <div class="col-10">
                     <b>TareqMohammad</b> La ilâhe illallah
@@ -72,8 +78,8 @@
                   </div>
                 </div>
                 <p class="text-muted">1h &nbsp;&nbsp;&nbsp;&nbsp;Yanıtla</p>
-              </div>
-              <div class="commentItem mt-2">
+              </div> -->
+              <!-- <div class="commentItem mt-2">
                 <div class="row">
                   <div class="col-10">
                     <b>TareqMohammad</b> La ilâhe illallah
@@ -99,10 +105,10 @@
                   </div>
                 </div>
                 <p class="text-muted">1h &nbsp;&nbsp;&nbsp;&nbsp;Yanıtla</p>
-              </div>
+              </div> -->
             </div>
-            <div style="border-top: solid 3px #261d1e; width: 100%"></div>
-            <div class="commentContent mt-3" style="line-height: 25px">
+            <!-- <div style="border-top: solid 3px #261d1e; width: 100%"></div> -->
+            <!-- <div class="commentContent mt-3" style="line-height: 25px">
               <div class="d-flex justify-content-between">
                 <div style="color: #a6a6a6">
                   <span>599 Beğeni</span>
@@ -137,7 +143,7 @@
                   id="commentTextArea"
                 />
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </b-modal>
@@ -146,6 +152,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   props: ["photoData"],
 
@@ -161,19 +169,53 @@ export default {
     closed() {
       this.$emit("closed");
     },
+    download(img) {
+      axios({
+        method: 'get',
+        url: img.url,
+        responseType: 'blob',
+      }).then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', img.name || 'image');
+        document.body.appendChild(link);
+        link.click();
+      });
+    },
   },
 
   watch: {
     photoData: function () {
-      if (this.photoData != null) {
+      if (this.photoData?.media.url != null) {
         this.$bvModal.show("modal-center");
       }
+    },
+  },
+  computed: {
+    getPhotoUrl() {
+      return this.photoData?.media.url;
+    },
+    getPhotoDescription() {
+      return this.photoData?.description || "";
+    },
+    getPhotoDate() {
+      const d = new Date(this.photoData?.created_at);
+      const yyyy = d.getFullYear();
+      let mm = d.getMonth() + 1; // Months start at 0!
+      let dd = d.getDate();
+
+      if (dd < 10) dd = "0" + dd;
+      if (mm < 10) mm = "0" + mm;
+
+      const returnDate = dd + "/" + mm + "/" + yyyy;
+      return returnDate;
     },
   },
 };
 </script>
 
-<style >
+<style>
 #galleryPrevIcon {
   font-size: 30px;
   color: #ffffff80;
@@ -226,5 +268,18 @@ export default {
 
 .modal-content {
   background-color: transparent !important;
+}
+
+.photo-data{
+  display: flex;
+  justify-content: space-between;
+}
+
+#indir {
+  color: #d6d6d6;
+  border: solid 1px white;
+  padding: 5px 5px 5px 5px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 </style>

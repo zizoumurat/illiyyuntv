@@ -14,6 +14,9 @@
             <p class="card-text">
               {{ post.title }}
             </p>
+            <p class="text-muted">
+              {{getPhotoDate(post)}}
+            </p>
           </div>
         </div>
       </div>
@@ -27,6 +30,20 @@ export default {
     posts: {
       required: true,
       type: Array,
+    },
+  },
+  methods: {
+    getPhotoDate(post) {
+      const d = new Date(post?.created_at);
+      const yyyy = d.getFullYear();
+      let mm = d.getMonth() + 1; // Months start at 0!
+      let dd = d.getDate();
+
+      if (dd < 10) dd = "0" + dd;
+      if (mm < 10) mm = "0" + mm;
+
+      const returnDate = dd + "/" + mm + "/" + yyyy;
+      return returnDate;
     },
   },
 };

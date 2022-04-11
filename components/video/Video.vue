@@ -267,7 +267,7 @@
             <div class="row m-0 mt-3">
               <img
                 style="border-radius: 50%"
-                src="@/assets/media/images/site/illiyyunProfileLogo.png"
+                src="https://res.cloudinary.com/dt2yilfxo/image/upload/v1648170617/logo_a57e49401f.png"
                 width="60"
               />
 

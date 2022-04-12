@@ -188,6 +188,7 @@ export default {
   watch: {
     photoData: function () {
       if (this.photoData?.media.url != null) {
+        console.log(this.photoData.media.url);
         this.$bvModal.show("modal-center");
       }
     },

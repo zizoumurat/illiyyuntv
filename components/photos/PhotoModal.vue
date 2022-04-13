@@ -34,78 +34,31 @@
             <img :src="getPhotoUrl" style="width: 100%" />
           </div>
           <div class="col-xl-6 p-3" id="commentContent">
-            <div class="">
+            <div class="modal-wrapper">
               <div class="photo-data">
-                <b>illiyyuntv</b> 
-                  <br />
+                <div>
+                  <b>illiyyuntv</b>
+                </div>
+
                 <!-- <p>
                   Ali radıyallahu anh şöyle demiştir: Onlara öğretin ve terbiye
                   edin (eğitin)
                 </p> -->
                 <!-- <p>(Zadü'l Mesir Fi İlmi't Tefsir)</p> -->
-                <div class="download-item">
-                <i @click="download(photoData.media)" id="indir" class="fa fa-arrow-down"></i>
-              </div>
-              </div>
-              <div class="mt-3">
-                {{ getPhotoDescription }}
-              </div>
-                <p class="text-muted mt-1">{{getPhotoDate}}</p>
-              
-              <!-- <div class="commentItem mt-2">
-                <div class="row">
-                  <div class="col-10">
-                    <b>TareqMohammad</b> La ilâhe illallah
-                  </div>
-                  <div class="col-2 p-1">
-                    <i class="fa fa-heart text-danger" aria-hidden="true"></i>
-                    <i
-                      class="fa fa-ellipsis-v btn text-gri"
-                      id="dropdownMenuButton"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    ></i>
-                    <div class="dropdown" style="position: static !important">
-                      <div
-                        class="dropdown-menu"
-                        aria-labelledby="dropdownMenuButton"
-                      >
-                        <a class="dropdown-item" href="#">Düzenle</a>
-                        <a class="dropdown-item" href="#">Sil</a>
-                      </div>
-                    </div>
-                  </div>
+                <div class="mt-3">
+                  {{ getPhotoDescription }}
                 </div>
-                <p class="text-muted">1h &nbsp;&nbsp;&nbsp;&nbsp;Yanıtla</p>
-              </div> -->
-              <!-- <div class="commentItem mt-2">
-                <div class="row">
-                  <div class="col-10">
-                    <b>TareqMohammad</b> La ilâhe illallah
-                  </div>
-                  <div class="col-2 p-1">
-                    <i class="fa fa-heart text-danger" aria-hidden="true"></i>
-                    <i
-                      class="fa fa-ellipsis-v btn text-gri"
-                      id="dropdownMenuButton"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    ></i>
-                    <div class="dropdown" style="position: static !important">
-                      <div
-                        class="dropdown-menu"
-                        aria-labelledby="dropdownMenuButton"
-                      >
-                        <a class="dropdown-item" href="#">Düzenle</a>
-                        <a class="dropdown-item" href="#">Sil</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <p class="text-muted">1h &nbsp;&nbsp;&nbsp;&nbsp;Yanıtla</p>
-              </div> -->
+              </div>
+              <div class="photo-footer">
+                <p class="text-muted mt-1">{{ getPhotoDate }}</p>
+                <p>
+                  <i
+                    @click="download(photoData.media)"
+                    id="indir"
+                    class="fa fa-arrow-down"
+                  ></i>
+                </p>
+              </div>
             </div>
             <!-- <div style="border-top: solid 3px #261d1e; width: 100%"></div> -->
             <!-- <div class="commentContent mt-3" style="line-height: 25px">
@@ -152,7 +105,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 
 export default {
   props: ["photoData"],
@@ -171,14 +124,14 @@ export default {
     },
     download(img) {
       axios({
-        method: 'get',
+        method: "get",
         url: img.url,
-        responseType: 'blob',
+        responseType: "blob",
       }).then((response) => {
         const url = window.URL.createObjectURL(new Blob([response.data]));
-        const link = document.createElement('a');
+        const link = document.createElement("a");
         link.href = url;
-        link.setAttribute('download', img.name || 'image');
+        link.setAttribute("download", img.name || "image");
         document.body.appendChild(link);
         link.click();
       });
@@ -188,7 +141,6 @@ export default {
   watch: {
     photoData: function () {
       if (this.photoData?.media.url != null) {
-        console.log(this.photoData.media.url);
         this.$bvModal.show("modal-center");
       }
     },
@@ -217,6 +169,17 @@ export default {
 </script>
 
 <style>
+.photo-footer{
+  display: flex;
+  justify-content: space-between;
+}
+.modal-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
 #galleryPrevIcon {
   font-size: 30px;
   color: #ffffff80;
@@ -271,9 +234,7 @@ export default {
   background-color: transparent !important;
 }
 
-.photo-data{
-  display: flex;
-  justify-content: space-between;
+.photo-data {
 }
 
 #indir {

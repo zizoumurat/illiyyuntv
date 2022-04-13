@@ -8,7 +8,8 @@
             <div class="image-container">
               <img
                 class="blog-img"
-                height="350"
+                height="380"
+                width="100%"
                 :src="getImg"
                 :alt="blog.title"
               />
@@ -17,6 +18,7 @@
               <div class="title-section">
                 <h1>{{ blog.title }}</h1>
                 <div class="share-icons">
+                  <p>{{convertDate(blog.created_at)}}</p>
                   <i class="fa fa-twitter" @click="share('twitter')"></i>
                   <i class="fa fa-facebook" @click="share('facebook')"></i>
                   <i class="fa fa-telegram" @click="share('telegram')"></i>
@@ -79,6 +81,27 @@ export default {
     },
   },
   methods: {
+    convertDate(date) {
+      const newDate = new Date(date);
+      const monthNames = [
+        "Ocak",
+        "Şubat",
+        "Mart",
+        "Nisan",
+        "Mayıs",
+        "Haziran",
+        "Temmuz",
+        "Ağustos",
+        "Eylül",
+        "Ekim",
+        "Kasım",
+        "Aralık",
+      ];
+      const day = newDate.getDate();
+      const monthIndex = newDate.getMonth();
+      const year = newDate.getFullYear();
+      return `${day} ${monthNames[monthIndex]} ${year}`;
+    },
     share(site) {
       
       var pageUrl = window.location.href

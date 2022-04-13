@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header :banner-image-url="banner" />
+    <Header  />
     <HorizontalVideoCard :url="'&per_page=12&page=1'"></HorizontalVideoCard>
   </div>
 </template>

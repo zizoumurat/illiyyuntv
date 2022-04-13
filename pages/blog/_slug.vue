@@ -8,8 +8,7 @@
             <div class="image-container">
               <img
                 class="blog-img"
-                height="380"
-                width="100%"
+                
                 :src="getImg"
                 :alt="blog.title"
               />
@@ -190,6 +189,11 @@ export default {
 
 .fa-whatsapp {
   color: #4fce5d;
+}
+.blog-img {
+    object-fit: cover;
+    width: 100%;
+    max-height: 400px;
 }
 @media (max-width: 500px) {
   .blog-img {

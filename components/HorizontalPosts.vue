@@ -6,7 +6,7 @@
         v-for="(post, index) in posts"
         :key="`horizontal-post-${index}`"
       >
-        <div class="card mb-4 box-shadow">
+        <div class="">
           <nuxt-link class="card-link" :to="`/blog/${post.slug}`">
             <img :src="post.image.url" alt="" />
           </nuxt-link>
@@ -14,7 +14,7 @@
             <p class="card-text">
               {{ post.title }}
             </p>
-            <p class="text-muted">
+            <p class="card-date text-muted">
               {{getPhotoDate(post)}}
             </p>
           </div>
@@ -52,6 +52,13 @@ export default {
 <style lang="scss" scoped>
 .card {
   background: none;
+}
+.card-text{
+  font-size: 1.2rem;
+  margin: 0;
+}
+.card-date{
+  margin: 0;
 }
 .card-link {
   height: 250px;

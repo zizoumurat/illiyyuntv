@@ -193,7 +193,7 @@
                 ></i>
               </div>
               <div>
-                <img :src="logo" alt="İlliyyun Tv" style="width: 110px" />
+                <img :src="logo" alt="İlliyyun Tv" style="width: 50px" />
               </div>
               <div>
                 <i

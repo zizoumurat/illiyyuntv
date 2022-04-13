@@ -284,13 +284,10 @@
                         width: 17px;
                             margin-top: 3px;
                         height: 17px;
-                        background-color: #eb4242;
+                        
                         border-radius: 50%;`"
                   >
-                    <i
-                      class="fa fa-check text-white"
-                      style="font-size: 10px"
-                    ></i> </span></b
+                    <img src="@/assets/media/tick.png" width="20" alt="" srcset=""> </span></b
               ></span>
             </div>
             <div class="mt-3">
